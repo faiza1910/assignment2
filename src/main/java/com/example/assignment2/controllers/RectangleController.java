@@ -34,7 +34,7 @@ public class RectangleController {
         int newHeight= Integer.parseInt(newRectangle.get("height"));
         String newColor = newRectangle.get("color");
         rectangleRepo.save(new Rectangle(newName,newWidth,newHeight,newColor));
-        return "showAll";
+        return "redirect:/rectangles/showAll";
     }
     @GetMapping("/static/add")
     public String showAddForm() {
