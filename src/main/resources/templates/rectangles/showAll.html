@@ -8,26 +8,21 @@
 <body>
     <h1>Rectangles</h1>
     <table>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Color</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="rectangle : ${rectangles}">
-                    <td th:text="${rectangle.name}">Name</td>
-                    <td th:text="${rectangle.color}">Color</td>
-                    <td>
-                        <a th:href="@{/rectangles/rectangle/{id}(id=${rectangle.id})}">View</a>
-                        <a th:href="@{/rectangles/edit/{id}(id=${rectangle.id})}">Edit</a>
-                        <a th:href="@{/rectangles/delete/{id}(id=${rectangle.id})}">Delete</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="rectangle : ${rectangles}">
+            <td th:text="${rectangle.name}">Name</td>
+            <td th:text="${rectangle.color}">Color</td>
+            <td>
+                <a th:href="@{/rectangles/rectangle/{id}(id=${rectangle.id})}">View</a>
+                <a th:href="@{/rectangles/edit/{id}(id=${rectangle.id})}">Edit</a>
+                <a th:href="@{/rectangles/delete/{id}(id=${rectangle.id})}">Delete</a>
+            </td>
+        </tr>
     </table>
+    <a href="/add">Add rectangle</a>
 </body>
 </html>
