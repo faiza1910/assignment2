@@ -6,11 +6,30 @@
     <title>Rectangle</title>
 </head>
 <body>
-    <h1 th:text="${rectangle.name}">Rectangle Name</h1>
-    <p>Width: <span th:text="${rectangle.width}">Width</span></p>
-    <p>Height: <span th:text="${rectangle.height}">Height</span></p>
-    <p>Color: <span th:text="${rectangle.color}">Color</span></p>
-    <a th:href="@{/rectangles/edit/{id}(id=${rectangle.id})}">Edit</a>
-    <a href="/rectangles/view">Back to List</a>
+    <h1 th:text="${rectangle.name} + ' display page'">Rectangle Display Page</h1>
+    <div>
+        <div class="rectangle-display" th:style="'background-color: #' + ${rectangle.color}">
+            <span th:text="${rectangle.name}">Rectangle Name</span>
+        </div>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td th:text="${rectangle.name}">Rectangle Name</td>
+            </tr>
+            <tr>
+                <td>Width</td>
+                <td th:text="${rectangle.width}">Rectangle Width</td>
+            </tr>
+            <tr>
+                <td>Height</td>
+                <td th:text="${rectangle.height}">Rectangle Height</td>
+            </tr>
+            <tr>
+                <td>Color</td>
+                <td th:text="${rectangle.color}">Rectangle Color</td>
+            </tr>
+        </table>
+        <a href="/rectangles/view">Back to List</a>
+    </div>
 </body>
 </html>
