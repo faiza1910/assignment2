@@ -3,6 +3,6 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:21-slim
-COPY --from=build /target/Assignment2-0.0.1-SNAPSHOT.jar Assignment2.jar
+COPY --from=build /target/assignment2-0.0.1-SNAPSHOT.jar assignment2.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","Assignment2.jar"]
+ENTRYPOINT ["java","-jar","assignment2.jar"]
