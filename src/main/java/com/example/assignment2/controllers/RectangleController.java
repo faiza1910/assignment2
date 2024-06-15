@@ -26,6 +26,10 @@ public class RectangleController {
         model.addAttribute("rectangles", rectangles);
         return "rectangles/showAll";
     }
+    @GetMapping("/rectangles/add")
+    public String addRectangleForm() {
+        return "addRectangle";
+    }
     @PostMapping("/rectangles/add")
     public String addRectangles(@RequestParam Map<String, String> newRectangle, HttpServletResponse response){
         String newName = newRectangle.get("name");
