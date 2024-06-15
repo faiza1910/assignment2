@@ -46,7 +46,7 @@ public class RectangleController {
     public String getRectangle(@PathVariable int id, Model model){
         Optional<Rectangle> rectangle= rectangleRepo.findById(id);
         model.addAttribute("rectangles", rectangle.get());
-        return "/redirect:/rectangles/rectangle";
+        return "redirect:/rectangles/rectangle";
     }
     
     @GetMapping("/rectangles/delete/{id}")
