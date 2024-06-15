@@ -1,6 +1,12 @@
 package com.example.assignment2.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="rectangles")
 public class Rectangle {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String name;
     private int width;
@@ -8,8 +14,8 @@ public class Rectangle {
     private String color;
     public Rectangle() {
     }
-    public Rectangle(int id, String name, int width, int height, String color) {
-        this.id = id;
+    public Rectangle(String name, int width, int height, String color) {
+        // this.id = id;
         this.name = name;
         this.width = width;
         this.height = height;
