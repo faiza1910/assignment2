@@ -14,6 +14,7 @@ public class RectangleController {
     @GetMapping("rectangles/view")
     public String getAllRectangles(Model model){
         List<Rectangle> rectangles= new ArrayList<>();
+        rectangles.add(new Rectangle(1,"bobby",10,10,"#ff0000"));
         model.addAttribute("rectangles", rectangles);
         return "rectangles/showAll";
     }
