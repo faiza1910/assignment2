@@ -11,13 +11,12 @@
         <tr>
             <th>Name</th>
             <th>Color</th>
-            <th>Actions</th>
+            <th></th>
         </tr>
         <tr th:each="rectangle : ${rectangles}">
-            <td th:text="${rectangle.name}">Name</td>
+            <td th:text="${rectangle.name}"><a th:href="@{/rectangles/rectangle/{id}(id=${rectangle.id})}">Name</a></td>
             <td th:text="${rectangle.color}">Color</td>
             <td>
-                <a th:href="@{/rectangles/rectangle/{id}(id=${rectangle.id})}">View</a>
                 <a th:href="@{/rectangles/edit/{id}(id=${rectangle.id})}">Edit</a>
                 <a th:href="@{/rectangles/delete/{id}(id=${rectangle.id})}">Delete</a>
             </td>

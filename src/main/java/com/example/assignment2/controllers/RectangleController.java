@@ -3,6 +3,7 @@ package com.example.assignment2.controllers;
 // import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,6 +41,12 @@ public class RectangleController {
     @GetMapping("/static/add")
     public String showAddForm() {
         return "redirect:/add.html";
+    }
+    @GetMapping("/rectangles/view/{id}")
+    public String getRectangle(@PathVariable int id, Model model){
+        Optional<Rectangle> rectangle= rectangleRepo.findById(id);
+        model.addAttribute("rectangles", rectangle.get());
+        return "/redirect:/rectangles/rectangle";
     }
     
     @GetMapping("/rectangles/delete/{id}")
