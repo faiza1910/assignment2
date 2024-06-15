@@ -28,7 +28,7 @@ public class RectangleController {
     }
     @GetMapping("rectangles/add")
     public String addRectangleForm() {
-        return "addRectangle";
+        return "add";
     }
     @PostMapping("/rectangles/add")
     public String addRectangles(@RequestParam Map<String, String> newRectangle, HttpServletResponse response){
