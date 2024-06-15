@@ -45,7 +45,7 @@ public class RectangleController {
     @GetMapping("/rectangles/view/{id}")
     public String getRectangle(@PathVariable int id, Model model){
         Optional<Rectangle> rectangle= rectangleRepo.findById(id);
-        model.addAttribute("rectangles", rectangle.get());
+        model.addAttribute("rectangle", rectangle.get());
         return "redirect:/rectangles/rectangle";
     }
     
