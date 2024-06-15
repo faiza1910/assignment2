@@ -26,6 +26,16 @@ public class RectangleController {
         model.addAttribute("rectangles", rectangles);
         return "rectangles/showAll";
     }
+
+    @PostMapping("/rectangles/add")
+    public String addRectangles(@RequestParam Map<String, String> newRectangle, HttpServletResponse response){
+        String newName = newRectangle.get("name");
+        int newWidth= Integer.parseInt(newRectangle.get("width"));
+        int newHeight= Integer.parseInt(newRectangle.get("height"));
+        String newColor = newRectangle.get("color");
+        rectangleRepo.save(new Rectangle(newName,newWidth,newHeight,newColor));
+        return "rectangles/showAll";
+    }
     
     
 }
