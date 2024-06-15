@@ -42,7 +42,7 @@ public class RectangleController {
     public String showAddForm() {
         return "redirect:/add.html";
     }
-    @GetMapping("/rectangles/view/{id}")
+    @GetMapping("/rectangles/name/{id}")
     public String getRectangle(@PathVariable int id, Model model){
         Optional<Rectangle> rectangle= rectangleRepo.findById(id);
         model.addAttribute("rectangle", rectangle.get());
