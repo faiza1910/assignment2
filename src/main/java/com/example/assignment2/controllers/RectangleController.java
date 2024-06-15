@@ -26,7 +26,7 @@ public class RectangleController {
         model.addAttribute("rectangles", rectangles);
         return "rectangles/showAll";
     }
-    @GetMapping("/rectangles/add")
+    @GetMapping("rectangles/add")
     public String addRectangleForm() {
         return "addRectangle";
     }
