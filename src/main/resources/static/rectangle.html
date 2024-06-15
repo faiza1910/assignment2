@@ -6,6 +6,11 @@
     <title>Rectangle</title>
 </head>
 <body>
-    Hello
+    <h1 th:text="${rectangle.name}">Rectangle Name</h1>
+    <p>Width: <span th:text="${rectangle.width}">Width</span></p>
+    <p>Height: <span th:text="${rectangle.height}">Height</span></p>
+    <p>Color: <span th:text="${rectangle.color}">Color</span></p>
+    <a th:href="@{/rectangles/edit/{id}(id=${rectangle.id})}">Edit</a>
+    <a href="/rectangles/view">Back to List</a>
 </body>
 </html>
