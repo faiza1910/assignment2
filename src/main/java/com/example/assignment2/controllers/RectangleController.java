@@ -57,23 +57,23 @@ public class RectangleController {
         return "rectangles/rectangle";
     }
 
-    // @GetMapping("/rectangles/edit/{id}")
-    // public String showEditForm(@PathVariable int id, Model model){
-    //     Rectangle rectangle = rectangleRepo.findById(id).orElse(null);
-    //     model.addAttribute("rectangle", rectangle);
-    //     return "rectangles/edit";
-    // }
+    
 
     @PostMapping("/rectangles/edit/{id}")
     public String editRectangle(@PathVariable int id, @RequestParam Map<String, String> editRectangle){
-        Rectangle rectangle = rectangleRepo.findById(id).orElseThrow(()-> new IllegalArgumentException("Id is wrong:"+id));
-
+        try {
+            Rectangle rectangle = rectangleRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid rectangle Id: " + id));
             rectangle.setName(editRectangle.get("name"));
             rectangle.setWidth(Integer.parseInt(editRectangle.get("width")));
             rectangle.setHeight(Integer.parseInt(editRectangle.get("height")));
             rectangle.setColor(editRectangle.get("color"));
             rectangleRepo.save(rectangle);
-        return "redirect:/rectangles/view";
+            return "redirect:/rectangles/view";
+        } catch (Exception e) {
+            // Log the exception or handle it appropriately
+            e.printStackTrace();
+            return "error-page"; // Redirect to an error page or handle the error in UI
+        }
     }
 
     
