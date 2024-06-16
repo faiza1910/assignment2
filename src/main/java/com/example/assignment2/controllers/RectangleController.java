@@ -66,7 +66,7 @@ public class RectangleController {
 
     @PostMapping("rectangles/edit/{id}")
     public String editRectangle(@PathVariable int id, @RequestParam Map<String, String> editRectangle){
-        Rectangle rectangle = rectangleRepo.findById(id).orElse(null);
+        Rectangle rectangle = rectangleRepo.findById(id).orElseThrow(()-> new IllegalArgumentException("Id is wrong:"+id));
         if(rectangle!=null){
             rectangle.setName(editRectangle.get("name"));
             rectangle.setWidth(Integer.parseInt(editRectangle.get("width")));
