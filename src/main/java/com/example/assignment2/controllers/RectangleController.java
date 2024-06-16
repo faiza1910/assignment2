@@ -57,12 +57,7 @@ public class RectangleController {
         return "rectangles/rectangle";
     }
 
-    @GetMapping("/rectangles/edit/{id}")
-    public String showEditForm(@PathVariable int id, Model model){
-        Rectangle rectangle = rectangleRepo.findById(id).orElse(null);
-        model.addAttribute("rectangle", rectangle);
-        return "rectangles/edit";
-    }
+    
 
     @PostMapping("rectangles/edit")
     public String editRectangle(@ModelAttribute Rectangle edittedRectangle){
