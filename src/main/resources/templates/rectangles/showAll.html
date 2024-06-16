@@ -14,7 +14,7 @@
             <th></th>
         </tr>
         <tr th:each="rectangle : ${rectangles}">
-            <td><a th:href="@{'/rectangles/name'(name=${rectangle.name})}" th:text="${rectangle.name}">Name</a></td>
+            <td><a th:href="@{/rectangles/name(name=${rectangle.name})}" th:text="${rectangle.name}">Name</a></td>
             <td th:text="${rectangle.color}">Color</td>
             <td>
                 <a th:href="@{/rectangles/edit/{id}(id=${rectangle.id})}">Edit</a>
