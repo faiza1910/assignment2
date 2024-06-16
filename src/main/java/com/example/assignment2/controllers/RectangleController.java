@@ -53,7 +53,7 @@ public class RectangleController {
     public String getRectangleById(@PathVariable int id, Model model){
         Rectangle rectangles = rectangleRepo.findById(id).orElse(null);
         model.addAttribute("rectangles", rectangles);
-        return "rectangle/rectangle";
+        return "rectangles/rectangle";
     }
 
     
