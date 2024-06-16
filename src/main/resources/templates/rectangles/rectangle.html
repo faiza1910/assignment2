@@ -3,33 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <title>Rectangle</title>
 </head>
 <body>
-    <h1 th:text="${rectangle.name}"></h1>
-    <div class="rectangle" th:style="'width: ' + ${rectangle.width} + 'px; height: ' + ${rectangle.height} + 'px; background-color: #' + ${rectangle.color} + ';'"></div>
-    <table>
-        <tr>
-            <th>Attribute</th>
-            <th>Value</th>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td><span th:text="${rectangle.name}"></span></td>
-        </tr>
-        <tr>
-            <td>Width</td>
-            <td><span th:text="${rectangle.width}"></span></td>
-        </tr>
-        <tr>
-            <td>Height</td>
-            <td><span th:text="${rectangle.height}"></span></td>
-        </tr>
-        <tr>
-            <td>Color</td>
-            <td><span th:text="${rectangle.color}"></span></td>
-        </tr>
-    </table>
+    <div class="container mt-5">
+        <div class="card card-body">
+            <h1 class="text-center mb-4" th:text="${rectangle.name}"></h1>
+            <div class="rectangle" th:style="'width: ' + ${rectangle.width} + 'px; height: ' + ${rectangle.height} + 'px; background-color: #' + ${rectangle.color} + ';'"></div>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Attribute</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td><span th:text="${rectangle.name}"></span></td>
+                </tr>
+                <tr>
+                    <td>Width</td>
+                    <td><span th:text="${rectangle.width}"></span></td>
+                </tr>
+                <tr>
+                    <td>Height</td>
+                    <td><span th:text="${rectangle.height}"></span></td>
+                </tr>
+                <tr>
+                    <td>Color</td>
+                    <td><span th:text="${rectangle.color}"></span></td>
+                </tr>
+            </table>
+        </div>
+    </div>
     <h3>Edit Rectangle</h3>
     <form action="/rectangles/edit" method="post">
         <input type="hidden" name="id" th:value="${rectangle.id}"/>

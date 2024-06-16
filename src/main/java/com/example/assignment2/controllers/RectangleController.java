@@ -83,7 +83,7 @@ public class RectangleController {
             oldRec.setName(edittedRectangle.getName());
             oldRec.setWidth(edittedRectangle.getWidth());
             oldRec.setHeight(edittedRectangle.getHeight());
-            oldRec.setName(edittedRectangle.getName());
+            oldRec.setColor(edittedRectangle.getColor());
             rectangleRepo.save(oldRec);
         }
         return "redirect:/rectangles/view";
