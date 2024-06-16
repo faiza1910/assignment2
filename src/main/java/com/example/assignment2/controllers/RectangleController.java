@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -59,21 +59,34 @@ public class RectangleController {
 
     
 
-    @PostMapping("/rectangles/edit/{id}")
-    public String editRectangle(@PathVariable int id, @RequestParam Map<String, String> editRectangle){
-        try {
-            Rectangle rectangle = rectangleRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid rectangle Id: " + id));
-            rectangle.setName(editRectangle.get("name"));
-            rectangle.setWidth(Integer.parseInt(editRectangle.get("width")));
-            rectangle.setHeight(Integer.parseInt(editRectangle.get("height")));
-            rectangle.setColor(editRectangle.get("color"));
-            rectangleRepo.save(rectangle);
-            return "redirect:/rectangles/view";
-        } catch (Exception e) {
-            // Log the exception or handle it appropriately
-            e.printStackTrace();
-            return "error-page"; // Redirect to an error page or handle the error in UI
+    // @PostMapping("/rectangles/edit/{id}")
+    // public String editRectangle(@PathVariable int id, @RequestParam Map<String, String> editRectangle){
+    //     try {
+    //         Rectangle rectangle = rectangleRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid rectangle Id: " + id));
+    //         rectangle.setName(editRectangle.get("name"));
+    //         rectangle.setWidth(Integer.parseInt(editRectangle.get("width")));
+    //         rectangle.setHeight(Integer.parseInt(editRectangle.get("height")));
+    //         rectangle.setColor(editRectangle.get("color"));
+    //         rectangleRepo.save(rectangle);
+    //         return "redirect:/rectangles/view";
+    //     } catch (Exception e) {
+    //         // Log the exception or handle it appropriately
+    //         e.printStackTrace();
+    //         return "error-page"; // Redirect to an error page or handle the error in UI
+    //     }
+    // }
+
+    @PostMapping("/rectangles/edit")
+    public String editRec(@ModelAttribute Rectangle edittedRectangle){
+        Rectangle oldRec = rectangleRepo.findById(edittedRectangle.getId()).orElse(null);
+        if(oldRec!=null){
+            oldRec.setName(edittedRectangle.getName());
+            oldRec.setWidth(edittedRectangle.getWidth());
+            oldRec.setHeight(edittedRectangle.getHeight());
+            oldRec.setName(edittedRectangle.getName());
+            rectangleRepo.save(oldRec);
         }
+        return "redirect:/rectangles/view";
     }
 
     
