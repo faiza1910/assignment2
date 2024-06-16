@@ -8,7 +8,10 @@
 <body>
     <h1 th:text="${rectangle.name}"></h1>
     <div>
-        
+        <p>Width: <span th:text="${rectangle.width}"></span></p>
+        <p>Height: <span th:text="${rectangle.height}"></span></p>
+        <p>Color: <span th:text="${rectangle.color}"></span></p>
+        <a th:href="@{/rectangles/edit/{id}(id=${rectangle.id})}">Edit</a>
     </div>
 </body>
 </html>

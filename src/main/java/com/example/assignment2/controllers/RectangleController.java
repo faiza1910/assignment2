@@ -42,12 +42,19 @@ public class RectangleController {
     public String showAddForm() {
         return "redirect:/add.html";
     }
-    @GetMapping("rectangles/{name}")
-    public String getRectangleByName(@PathVariable String name, Model model){
-        List<Rectangle> rectangles = rectangleRepo.findByName(name);
-        model.addAttribute("rectangles", rectangles);
+    // @GetMapping("rectangles/{name}")
+    // public String getRectangleByName(@PathVariable String name, Model model){
+    //     List<Rectangle> rectangles = rectangleRepo.findByName(name);
+    //     model.addAttribute("rectangles", rectangles);
+    //     return "rectangles/rectangle";
+    // }
+    @GetMapping("/rectangles/{id}")
+    public String getRectangleById(@PathVariable int id, Model model){
+        Rectangle rectangle = rectangleRepo.findById(id).orElse(null);
+        model.addAttribute("rectangle", rectangle);
         return "rectangles/rectangle";
     }
+
     
     @GetMapping("/rectangles/delete/{id}")
     public String deleteReactangle(@PathVariable int id){
