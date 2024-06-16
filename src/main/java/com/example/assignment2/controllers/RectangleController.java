@@ -59,7 +59,7 @@ public class RectangleController {
 
     
 
-    @PostMapping("rectangles/edit")
+    @PostMapping("rectangles/edit{id}")
     public String editRectangle(@PathVariable int id, @RequestParam Map<String, String> editRectangle, HttpServletResponse response){
         Rectangle rectangle = rectangleRepo.findById(id).orElse(null);
         
