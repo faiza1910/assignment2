@@ -48,11 +48,12 @@ public class RectangleController {
     //     model.addAttribute("rectangles", rectangles);
     //     return "rectangles/rectangle";
     // }
+    
     @GetMapping("/rectangles/{id}")
     public String getRectangleById(@PathVariable int id, Model model){
-        Rectangle rectangle = rectangleRepo.findById(id).orElse(null);
-        model.addAttribute("rectangle", rectangle);
-        return "rectangles/rectangle";
+        Rectangle rectangles = rectangleRepo.findById(id).orElse(null);
+        model.addAttribute("rectangles", rectangles);
+        return "rectangle/rectangle";
     }
 
     

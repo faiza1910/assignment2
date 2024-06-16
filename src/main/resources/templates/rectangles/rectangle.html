@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1 th:text="${rectangle.name}"></h1>
+    <div class="rectangle" th:style="'width: ' + ${rectangle.width} + 'px; height: ' + ${rectangle.height} + 'px; background-color: #' + ${rectangle.color} + ';'"></div>
     <div>
         <p>Width: <span th:text="${rectangle.width}"></span></p>
         <p>Height: <span th:text="${rectangle.height}"></span></p>
