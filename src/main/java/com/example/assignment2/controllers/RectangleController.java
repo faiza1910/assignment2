@@ -45,7 +45,7 @@ public class RectangleController {
     @GetMapping("rectangles/{name}")
     public String getRectangle(@PathVariable String name, Model model){
         List<Rectangle> rectangles = rectangleRepo.findByName(name);
-        model.addAttribute("rectangles", rectangles);
+        model.addAttribute("rectangles", rectangles.get(0));
         return "rectangles/rectangle";
     }
     
