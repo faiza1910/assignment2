@@ -8,11 +8,39 @@
 <body>
     <h1 th:text="${rectangle.name}"></h1>
     <div class="rectangle" th:style="'width: ' + ${rectangle.width} + 'px; height: ' + ${rectangle.height} + 'px; background-color: #' + ${rectangle.color} + ';'"></div>
-    <div>
-        <p>Width: <span th:text="${rectangle.width}"></span></p>
-        <p>Height: <span th:text="${rectangle.height}"></span></p>
-        <p>Color: <span th:text="${rectangle.color}"></span></p>
-        <a th:href="@{/rectangles/edit/{id}(id=${rectangle.id})}">Edit</a>
-    </div>
+    <table>
+        <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><span th:text="${rectangle.name}"></span></td>
+        </tr>
+        <tr>
+            <td>Width</td>
+            <td><span th:text="${rectangle.width}"></span></td>
+        </tr>
+        <tr>
+            <td>Height</td>
+            <td><span th:text="${rectangle.height}"></span></td>
+        </tr>
+        <tr>
+            <td>Color</td>
+            <td><span th:text="${rectangle.color}"></span></td>
+        </tr>
+    </table>
+    <h3>Edit Rectangle</h3>
+    <form action="/rectangles/edit" method="post">
+        <label>Name:</label>
+        <input type="text" name="name" th:value="${rectangle.name}"/><br/>
+        <label>Width:</label>
+        <input type="number" name="width" th:value="${rectangle.width}"/><br/>
+        <label>Height:</label>
+        <input type="number" name="height" th:value="${rectangle.height}"/><br/>
+        <label>Color:</label>
+        <input type="text" name="color" th:value="${rectangle.color}"/><br/>
+        <input type="submit" value="Save">
+    </form>
 </body>
 </html>

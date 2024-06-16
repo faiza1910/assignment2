@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,9 +52,29 @@ public class RectangleController {
     
     @GetMapping("/rectangles/{id}")
     public String getRectangleById(@PathVariable int id, Model model){
-        Rectangle rectangles = rectangleRepo.findById(id).orElse(null);
-        model.addAttribute("rectangles", rectangles);
+        Rectangle rectangle = rectangleRepo.findById(id).orElse(null);
+        model.addAttribute("rectangle", rectangle);
         return "rectangles/rectangle";
+    }
+
+    @GetMapping("/rectangles/edit/{id}")
+    public String showEditForm(@PathVariable int id, Model model){
+        Rectangle rectangle = rectangleRepo.findById(id).orElse(null);
+        model.addAttribute("rectangle", rectangle);
+        return "rectangles/edit";
+    }
+
+    @PostMapping("rectangles/edit")
+    public String editRectangle(@ModelAttribute Rectangle edittedRectangle){
+        Rectangle oldRec = rectangleRepo.findById(edittedRectangle.getId()).orElse(null);
+        if(oldRec != null){
+            oldRec.setName(edittedRectangle.getName());
+            oldRec.setWidth(edittedRectangle.getWidth());
+            oldRec.setHeight(edittedRectangle.getHeight());
+            oldRec.setColor(edittedRectangle.getColor());
+            rectangleRepo.save(oldRec);
+        }
+        return "redirect:/rectangles/view";
     }
 
     
