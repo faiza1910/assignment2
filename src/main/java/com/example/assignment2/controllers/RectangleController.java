@@ -42,8 +42,8 @@ public class RectangleController {
     public String showAddForm() {
         return "redirect:/add.html";
     }
-    @GetMapping("rectangles/{name}")
-    public String getRectangle(@PathVariable String name, Model model){
+    @GetMapping("rectangles/name/{name}")
+    public String getRectangleByName(@PathVariable String name, Model model){
         List<Rectangle> rectangles = rectangleRepo.findByName(name);
         model.addAttribute("rectangles", rectangles.get(0));
         return "rectangles/rectangle";
