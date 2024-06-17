@@ -12,7 +12,9 @@
             <div class="card-header text-center">
                 <h1 th:text="${rectangle.name}"></h1>
             </div>
-            <div class="rectangle text-center" th:style="'width: ' + ${rectangle.width} + 'px; height: ' + ${rectangle.height} + 'px; background-color: #' + ${rectangle.color} + ';'"></div>
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="rectangle text-center" th:style="'width: ' + ${rectangle.width} + 'px; height: ' + ${rectangle.height} + 'px; background-color: #' + ${rectangle.color} + ';'"></div>
+            </div>
             <table class="table table-bordered">
                 <tr>
                     <th>Attribute</th>
@@ -63,7 +65,7 @@
                     <input type="text" class="form-control" name="color" th:value="${rectangle.color}"/><br/>
                 </div>
                 <div class="d-grid">
-                    <input type="submit" value="Save">
+                    <input class="btn btn-secondary" type="submit" value="Save">
                 </div>
             </form>
         </div>
