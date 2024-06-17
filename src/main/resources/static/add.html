@@ -7,28 +7,34 @@
     <title>Add</title>
 </head>
 <body>
-    
-	<h1>New Rectangle</h1>
-	<form action="/rectangles/add" method="post">
-
-			<input type="text" id="name" name="name"  
-				placeholder="Name">
-
-			<input type="number" id="width" name="width"  
-				placeholder="Width">
-		
-		
-			
-			<input type="number" id="height" name="height"  
-				placeholder="Height">
-
-			<input type="text" id="color" name="color"  
-				placeholder="Color">
-		
-			<input type="submit" value="SEND"></input>
-		
-		
-	</form>
-
+    <div class="container mt-5">
+        <div class="card card-body">
+			<div class="card-header text-center"> 
+				<h1>New Rectangle</h1>
+			</div>
+			<form action="/rectangles/add" method="post">
+				<div>
+					<label for="name" class="form-label">Name</label>
+					<input type="text" class="form-control" id="name" name="name"  placeholder="Name">
+				</div>
+				<div>
+					<label for="width" class="form-label">Width</label>
+					<input type="number" class="form-control" id="width" name="width" placeholder="Width">
+				</div>
+					
+				<div>
+					<label for="height" class="form-label">Height</label>
+					<input type="number" class="form-control" id="height" name="height" placeholder="Height">
+				</div>
+				<div>
+					<label for="color" class="form-label">Color</label>
+					<input type="text" class="form-control" id="color" name="color" placeholder="Color">
+				</div>
+				<div class="d-grid">
+					<input class="btn btn-secondary" type="submit" value="SEND"></input>
+				</div>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

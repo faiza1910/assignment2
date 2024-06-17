@@ -9,8 +9,10 @@
 <body>
     <div class="container mt-5">
         <div class="card card-body">
-            <h1 class="text-center mb-4" th:text="${rectangle.name}"></h1>
-            <div class="rectangle" th:style="'width: ' + ${rectangle.width} + 'px; height: ' + ${rectangle.height} + 'px; background-color: #' + ${rectangle.color} + ';'"></div>
+            <div class="card-header text-center">
+                <h1 th:text="${rectangle.name}"></h1>
+            </div>
+            <div class="rectangle text-center" th:style="'width: ' + ${rectangle.width} + 'px; height: ' + ${rectangle.height} + 'px; background-color: #' + ${rectangle.color} + ';'"></div>
             <table class="table table-bordered">
                 <tr>
                     <th>Attribute</th>
@@ -35,18 +37,36 @@
             </table>
         </div>
     </div>
-    <h3>Edit Rectangle</h3>
-    <form action="/rectangles/edit" method="post">
-        <input type="hidden" name="id" th:value="${rectangle.id}"/>
-        <label>Name:</label>
-        <input type="text" name="name" th:value="${rectangle.name}"/><br/>
-        <label>Width:</label>
-        <input type="number" name="width" th:value="${rectangle.width}"/><br/>
-        <label>Height:</label>
-        <input type="number" name="height" th:value="${rectangle.height}"/><br/>
-        <label>Color:</label>
-        <input type="text" name="color" th:value="${rectangle.color}"/><br/>
-        <input type="submit" value="Save">
-    </form>
+    <div class="container mt-5">
+        <div class="card card-body">
+            <div class="card-header text-center">
+                <h3>Edit Rectangle</h3>
+            </div>
+            <form action="/rectangles/edit" method="post">
+                <div>
+                    <input type="hidden" name="id" th:value="${rectangle.id}"/>
+                </div>
+                <div>
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" name="name" th:value="${rectangle.name}"/><br/>
+                </div>
+                <div>
+                    <label for="width" class="form-label">Width:</label>
+                    <input type="number" class="form-control" name="width" th:value="${rectangle.width}"/><br/>
+                </div>
+                <div>
+                    <label for="height" class="form-label">Height:</label>
+                    <input type="number" class="form-control" name="height" th:value="${rectangle.height}"/><br/>
+                </div>
+                <div>
+                    <label for="color" class="form-label">Color:</label>
+                    <input type="text" class="form-control" name="color" th:value="${rectangle.color}"/><br/>
+                </div>
+                <div class="d-grid">
+                    <input type="submit" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

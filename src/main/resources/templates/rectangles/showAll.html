@@ -9,7 +9,9 @@
 <body>
     <div class="container mt-5">
         <div class="card card-body">
-            <h1 class="card-title text-center mb-3">Rectangles</h1>
+            <div class="card-header text-center"> 
+                <h1>Rectangles</h1>
+            </div>
             <table class="table table-bordered">
                 <tr>
                     <th>Name</th>
@@ -19,7 +21,7 @@
                 <tr th:each="rectangle : ${rectangles}">
                     <td><a th:href="@{/rectangles/{id}(id=${rectangle.id})}" th:text="${rectangle.name}">Name</a></td>
                     <td th:text="${rectangle.color}">Color</td>
-                    <td>
+                    <td class="d-grid">
                         <a class="btn btn-danger" th:href="@{/rectangles/delete/{id}(id=${rectangle.id})}">Delete</a>
                     </td>
                 </tr>
